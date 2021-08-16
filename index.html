@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <script
+      src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+      integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <h2>Demo socket</h2>
+    <h3 id="welcome"></h3>
+    <hr />
+    <input type="text" id="memberId" onchange="connection(this.value)" />
+    <br />
+    <button id="call" onClick="makeDirectCall()">call</button>
+    <button id="call" onClick="endDirectCall()">end</button>
+    <button id="call" onClick="canDirectCall()">cancel</button>
+    <p id="message" />
+    <hr />
+    <h2>Networking</h2>
+    <button id="ready" onClick="readyNetworking()">ready</button>
+    <script src="./app.js"></script>
+    <hr />
+    <h2>Workshop</h2>
+    <button onClick="preJoinWorkshop()">Pre Join</button>
+    <button onClick="joinWorkshop()">Join</button>
+    <button onClick="outWorkshop()">Out</button>
+    <hr />
+    <button onClick="prePublishCamera()">Pre publish camera</button>
+    <button onClick="publishCamera(true)">publish camera</button>
+    <button onClick="publishCamera(false)">unpublish camera</button>
+    <hr />
+    <button onClick="kick()">Kick</button>
+    <button onClick="mute()">Mute</button>
+  </body>
+</html>
