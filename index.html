@@ -25,6 +25,7 @@
     <hr />
     <h2>Networking</h2>
     <button id="ready" onClick="readyNetworking()">ready</button>
+    <button id="endNetworking" onClick="endNetworking()">ready</button>
     <script src="./app.js"></script>
     <hr />
     <h2>Workshop</h2>
@@ -34,9 +35,28 @@
     <hr />
     <button onClick="prePublishCamera()">Pre publish camera</button>
     <button onClick="publishCamera(true)">publish camera</button>
-    <button onClick="publishCamera(false)">unpublish camera</button>
+    <button onClick="publishCamera(false)">unPublish camera</button>
     <hr />
     <button onClick="kick()">Kick</button>
     <button onClick="mute()">Mute</button>
+    <hr />
+    <h2>Main Stage</h2>
+    <button onClick="joinMainState()">Join</button>
+    <button onClick="outMainState()">Out</button>
+    <button onClick="msKick()">Kick</button>
+    <button onClick="msMute()">Mute</button>
+    <hr />
+    <button onClick="msPublishCamera(true)">publish camera</button>
+    <button onClick="msPublishCamera(false)">unPublish camera</button>
+    <hr>
+    <button onClick="msBroadcast()">Broadcast</button>
+    <button onClick="startRecording()">Start recording</button>
+    <button onClick="stopRecording()">Stop recording</button>
+
+    <hr>
+    <h2>Breakout Session</h2>
+    <button onClick="preJoinBreakoutSession()">Pre join</button>
+    <button onClick="joinBreakoutSession()">Join</button>
+    <button onClick="outBreakoutSession()">Out</button>
   </body>
 </html>

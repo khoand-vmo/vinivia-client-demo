@@ -144,3 +144,122 @@ const mute = () => {
     });
   }
 };
+
+const joinMainState = () => {
+  socket.emit("Client:MainStage:join", {
+    sessionId: 2093,
+  });
+};
+
+const outMainState = () => {
+  socket.emit("Client:MainStage:out", {
+    sessionId: 2093,
+  });
+};
+
+const msPublishCamera = (status) => {
+  if (status) {
+    socket.emit("Client:MainStage:publishCamera", {
+      sessionId: 2093,
+    });
+  } else {
+    socket.emit("Client:MainStage:unPublishCamera", {
+      sessionId: 2093,
+    });
+  }
+}
+
+const msKick = () => {
+  var userId = prompt("Enter userId");
+  console.log("userId ", userId);
+  if (userId) {
+    socket.emit("Client:MainStage:kick", {
+      sessionId: 2093,
+      userId: parseInt(userId),
+    });
+  }
+};
+
+const msMute = () => {
+  var userId = prompt("Enter userId");
+  console.log("userId ", userId);
+  if (userId) {
+    socket.emit("Client:MainStage:turnOfOtherCamera", {
+      sessionId: 2093,
+      userId: parseInt(userId),
+    });
+  }
+};
+
+const msBroadcast = () => {
+  const streamId1 = "asia-east2#asia-east2-c.PNQbKR60.20210825.PSQUdO9P";
+  const streamId2 = "asia-east2#asia-east2-b.uHTcmk44.20210825.PSsIYgOA"
+  const streams = [
+    {
+      streamId: streamId1,
+      offset: { anchor: 'TopLeft', x: 0, y: 0 },
+      width: 640,
+      height: 720
+    },
+    {
+      streamId: streamId2,
+      offset: { anchor: 'TopLeft', x: 0, y: 0 },
+      width: 150,
+      height: 150
+    }
+  ]
+
+  // var userId = prompt("Who are you?");
+  socket.emit("Client:MainStage:broadcast", {
+    streams,
+    sessionId: 2093,
+    // userId: parseInt(userId),
+  })
+} 
+
+const startRecording = () => {
+  const streamId1 = "asia-east2#asia-east2-c.PNQbKR60.20210825.PSQUdO9P";
+  const streamId2 = "asia-east2#asia-east2-b.uHTcmk44.20210825.PSsIYgOA"
+  const streams = [
+    {
+      streamId: streamId1,
+      offset: { anchor: 'TopLeft', x: 0, y: 0 },
+      width: 640,
+      height: 720
+    },
+    {
+      streamId: streamId2,
+      offset: { anchor: 'TopLeft', x: 0, y: 0 },
+      width: 150,
+      height: 150
+    }
+  ]
+
+  socket.emit("Client:MainStage:broadcast", {
+    streams,
+    sessionId: 2093,
+  })
+}
+
+const stopRecording = () => {
+  
+}
+
+// Breakout session
+const preJoinBreakoutSession = () => {
+  socket.emit("Client:BreakoutSession:preJoin", {
+    sessionId: 2170,
+  });
+}
+
+const joinBreakoutSession = () => {
+  socket.emit("Client:BreakoutSession:join", {
+    sessionId: 2170,
+  });
+}
+
+const outBreakoutSession = () => {
+  socket.emit("Client:BreakoutSession:out", {
+    sessionId: 2170,
+  });
+}
